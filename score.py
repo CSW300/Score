@@ -7,18 +7,22 @@ Original file is located at
     https://colab.research.google.com/drive/17IKTmjIgD8lQN8Nx61CDI3X2hZmJbq4H
 """
 
-grades_list_str = input().split()
+# 讀取輸入並轉換為整數清單
+input_data = input("請輸入成績（空格分隔）：").split()
+grades = [int(score) for score in input_data]
 
-total_sum = 0
-count = 0
+if grades:
+    # 計算各項指標
+    max_grade = max(grades)
+    min_grade = min(grades)
+    average = sum(grades) / len(grades)
+    fail_count = len([s for s in grades if s < 60])
 
-for grade_str in grades_list_str:
-  grade = int(grade_str)
-  total_sum += grade
-  count += 1
-
-if count > 0:
-  average = total_sum / count
-  print(f"平均數為: {average}")
+    # 輸出結果
+    print(f"--- 分析結果 ---")
+    print(f"最高分：{max_grade}")
+    print(f"最低分：{min_grade}")
+    print(f"平均分：{average:.2f}")  # 限制小數點後兩位
+    print(f"不及格人數：{fail_count}")
 else:
-  print("沒有輸入任何數字。")
+    print("錯誤：未輸入任何成績！")
