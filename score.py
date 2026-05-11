@@ -7,13 +7,28 @@ Original file is located at
     https://colab.research.google.com/drive/1nJilbAAKufYzseqQR0Q98u1T4CnOS83h
 """
 
-grades_list=input().split()
+input_data = input("請輸入一串成績（以空格分隔）：")
 
-fail_count = 0
 
-for grade_str in grades_list:
-  grade=int(grade_str)
-  if grade<60:
-    fail_count += 1
 
-print(fail_count)
+grades = [int(score) for score in input_data.split()]
+
+
+
+
+
+if len(grades) > 0:
+
+    max_grade = max(grades)
+
+    min_grade = min(grades)
+
+
+
+    print(f"最大值：{max_grade}")
+
+    print(f"最小值：{min_grade}")
+
+else:
+
+    print("沒有輸入任何成績！")
